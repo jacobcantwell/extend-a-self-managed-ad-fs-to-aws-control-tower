@@ -18,6 +18,8 @@ AWS Control Tower helps you automate the process of setting up a multi-account A
 
 AWS Control Tower incorporates AWS SSO, a cloud-based service that simplifies SSO access in a multi-account environment. Using AWS SSO, the directory connected to AWS Control Tower controls user authentication. Each user’s assigned account access and level of access permissions granted determines authorization.
 
+You can use AWS Service Catalog apis to automate the creation of accounts in AWS Control Tower. With programmatic account creation using AWS Control Tower, you can create accounts in batches, apply customizations and verify account configuration.
+
 ## Limitations of Integrating with ADFS
 
 * Creation of IAM Roles in each AWS Member account. AWS SSO does this centrally through Permission Sets.
@@ -29,16 +31,25 @@ Permission Sets are JSON templates that tell AWS SSO how you want an IAM Role to
 
 ## Alternative Options
 
+### SAML based authentication and SCIM based user/group automated provisioning 
+
+You can use AWS Single Sign-On (AWS SSO) to authenticate identities from external identity providers (IdPs) through the Security Assertion Markup Language (SAML) 2.0 standard. This enables your users to sign in to the AWS SSO user portal with their corporate credentials. They can then navigate to their assigned accounts, roles, and applications hosted in external identity providers.
 
 
 
-## Step # 
+
+
+## Step # - Configure AWS SSO to use Azure Active Directory Federation Services as an External Identity Provider
 
 AWS SSO works as a SAML 2.0 compliant service provider to your external identity provider (IdP). To configure your IdP as your AWS SSO identity source, you must establish a SAML trust relationship by exchanging meta data between your IdP and AWS SSO. While AWS SSO will use your IdP to authenticate users, the users must first be provisioned into AWS SSO before you can assign permissions to AWS accounts and resources.
 
+* Log in to your AWS Control Tower Master account with Control Tower Administrator access.
 * Enable AWS SSO in your master AWS account.
-* Under Identity source, change the Identity source to External Identity provider.
-* AWS SSO works as a SAML 2.0 compliant service provider to your external identity provider (IdP). To configure your IdP as your AWS SSO identity source, you must establish a SAML trust relationship by exchanging meta data between your IdP and AWS SSO. While AWS SSO will use your IdP to authenticate users, the users must first be provisioned into AWS SSO before you can assign permissions to AWS accounts and resources.
+* On the AWS SSO Dashboard click the Choose your identity source link.
+* In the Identity Source section, in the row Identity Source, click the Change link.
+* Select External Identity Provider
+* In the Service provider metadata section click Download metadata file and save on your computer as aws-sp.xml.
+* Leave this browser tab open, and open a new tab to access your Microsoft Azure Console
 
 
 
@@ -51,15 +62,15 @@ AWS SSO works as a SAML 2.0 compliant service provider to your external identity
 | Link | Summary |
 | -- | -- |
 | [A Self-Directed Journey to AWS Identity Federation Mastery](https://identity-federation.awssecworkshops.com/)| AWS workshops |
+| [Control Tower Workshops](https://controltower.aws-management.tools/)| AWS Control Tower Immersion / Activation Day |
 | [Enabling Federation to AWS Using Windows Active Directory, ADFS, and SAML 2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)| |
 | [How to Set Up SSO to the AWS Management Console for Multiple Accounts by Using AD FS and SAML 2.0](https://aws.amazon.com/blogs/security/how-to-set-up-sso-to-the-aws-management-console-for-multiple-accounts-by-using-ad-fs-and-saml-2-0/)| |
-| [How to Establish Federated Access to Your AWS Resources by Using Active Directory User Attributes](https://aws.amazon.com/blogs/security/how-to-establish-federated-access-to-your-aws-resources-by-using-active-directory-user-attributes/)| |
 | [AWS Federated Authentication with Active Directory Federation Services (AD FS)](https://aws.amazon.com/blogs/security/aws-federated-authentication-with-active-directory-federation-services-ad-fs/)| |
+| [How to Establish Federated Access to Your AWS Resources by Using Active Directory User Attributes](https://aws.amazon.com/blogs/security/how-to-establish-federated-access-to-your-aws-resources-by-using-active-directory-user-attributes/)| |
 | ~~[How to automate SAML federation to multiple AWS accounts from Microsoft Azure Active Directory](https://aws.amazon.com/blogs/security/how-to-automate-saml-federation-to-multiple-aws-accounts-from-microsoft-azure-active-directory/)~~| |
 | [Extend a self-managed Active Directory to AWS Control Tower](https://aws.amazon.com/blogs/mt/extend-a-self-managed-active-directory-to-aws-control-tower/)| |
-| [The Next Evolution in AWS Single Sign-On](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/)| |
+| [The Next Evolution in AWS Single Sign-On](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/)| AWS SSO announcement |
 | [Field Notes: Customizing the AWS Control Tower Account Factory with AWS Service Catalog](https://aws.amazon.com/blogs/architecture/field-notes-customizing-the-aws-control-tower-account-factory-with-aws-service-catalog/)| |
-
-
+| [Programmatically Create an AWS Account with AWS Control Tower](https://www.youtube.com/watch?v=t0gxOsByOlA) | Create accounts in batches, apply customizations and verify account configuration. |
 
 
