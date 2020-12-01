@@ -48,13 +48,17 @@ AWS SSO works as a SAML 2.0 compliant service provider to your external identity
 
 ## Resources
 
-* [A Self-Directed Journey to AWS Identity Federation Mastery](https://identity-federation.awssecworkshops.com/)
+| -- Link -- | -- Summary -- |
+| -- | -- |
+| [A Self-Directed Journey to AWS Identity Federation Mastery](https://identity-federation.awssecworkshops.com/) | AWS workshops |
+
 * [Enabling Federation to AWS Using Windows Active Directory, ADFS, and SAML 2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
 * [How to Set Up SSO to the AWS Management Console for Multiple Accounts by Using AD FS and SAML 2.0](https://aws.amazon.com/blogs/security/how-to-set-up-sso-to-the-aws-management-console-for-multiple-accounts-by-using-ad-fs-and-saml-2-0/)
 * [How to Establish Federated Access to Your AWS Resources by Using Active Directory User Attributes](https://aws.amazon.com/blogs/security/how-to-establish-federated-access-to-your-aws-resources-by-using-active-directory-user-attributes/)
 * [AWS Federated Authentication with Active Directory Federation Services (AD FS)](https://aws.amazon.com/blogs/security/aws-federated-authentication-with-active-directory-federation-services-ad-fs/)
 * ~~[How to automate SAML federation to multiple AWS accounts from Microsoft Azure Active Directory](https://aws.amazon.com/blogs/security/how-to-automate-saml-federation-to-multiple-aws-accounts-from-microsoft-azure-active-directory/)~~
 * [Extend a self-managed Active Directory to AWS Control Tower](https://aws.amazon.com/blogs/mt/extend-a-self-managed-active-directory-to-aws-control-tower/)
+* [The Next Evolution in AWS Single Sign-On](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/)
 * [Field Notes: Customizing the AWS Control Tower Account Factory with AWS Service Catalog](https://aws.amazon.com/blogs/architecture/field-notes-customizing-the-aws-control-tower-account-factory-with-aws-service-catalog/)
 
 
