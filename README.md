@@ -8,19 +8,21 @@ In this blog post, I show you how to setup [AWS Control Tower](https://aws.amazo
 
 ## Background
 
-[AWS Single Sign-On (AWS SSO)](https://docs.aws.amazon.com/singlesignon/index.html) is a cloud service that enables you to manage SSO access to your AWS accounts, resources, and cloud applications centrally, for users from your preferred identity source.
-
-When you enable AWS SSO, you allow it to create IAM roles for each AWS account in your AWS organization. You also allow other AWS accounts within your organization to assign applications access to AWS SSO users. (from products page)
-
-Your identity source is the place where you administer and authenticate identities. You use AWS SSO to manage permissions for identities from your identity source to access AWS accounts, roles, and applications. AWS has three main identity sources: AWS SSO; Active Directory (AWS hosted or on-premise), or external SAML 2.0-compatible identity provider (IdP) such as [Octka](https://www.okta.com/products/single-sign-on/), [Azure AD][https://azure.microsoft.com/en-au/services/active-directory/], [Ping](https://www.pingidentity.com/en/software/pingfederate.html), or [OneLogin](https://www.onelogin.com/product/sso).
-
 AWS Control Tower helps you automate the process of setting up a multi-account AWS environment [AWS Landing Zone](https://aws.amazon.com/solutions/implementations/aws-landing-zone/) that is secure, well-architected, and ready to use. This Landing Zone is created following best practices established through AWS’ experience working with thousands of enterprises as they move to the cloud. This includes the configuration of [AWS Organizations](https://aws.amazon.com/organizations/), centralized logging, federated access, mandatory guardrails, and networking.
 
 AWS Control Tower incorporates AWS SSO, a cloud-based service that simplifies SSO access in a multi-account environment. Using AWS SSO, the directory connected to AWS Control Tower controls user authentication. Each user’s assigned account access and level of access permissions granted determines authorization.
 
-You can use AWS Service Catalog apis to automate the creation of accounts in AWS Control Tower. With programmatic account creation using AWS Control Tower, you can create accounts in batches, apply customizations and verify account configuration.
+You can use AWS Service Catalog APIs to automate the creation of accounts in AWS Control Tower. With programmatic account creation using AWS Control Tower, you can create accounts in batches, apply customizations and verify account configuration.
+
+[AWS Single Sign-On (AWS SSO)](https://docs.aws.amazon.com/singlesignon/index.html) is a cloud service that enables you to manage SSO access to your AWS accounts, resources, and cloud applications centrally, for users from your preferred identity source. AWS SSO is deployed with AWS Control Tower by default but we are not actually using it.
 
 ## Limitations of Integrating with ADFS
+
+### Limitations using AWS SSO
+
+ADFS does not support the SCIM protocol so there are some limitations if it is used as the IdP with AWS SSO. Users need to be created manually in AWS SSO. This step is not required with SAML 2.0 IdPs that support SCIM.
+
+### General Limitations
 
 * Creation of IAM Roles in each AWS Member account. AWS SSO does this centrally through Permission Sets.
 * Creation of IAM IdPs. AWS SSO does this automatically when you push your first Permission Set to an account.
